@@ -1,5 +1,23 @@
+// Задаем цвет в переменную
+$white_color:   #ffffff
+
+// Записываем стиль кнопки в мексину
+/** @mexin blue_button() 
+    background-image: linear-gradient(0.0deg, #1eacc7 0%, #4ce2ff 100%)
+    border: none
+    border-radius: 4px
+    box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.2)
+    font-weight: 400
+    text-transform: uppercase
+    color: $white_color **/
+
+ 
 *
     font-family: 'Roboto' /** sans-serif **/
+    font-style: sans-serif
+
+header
+    position: relative
 
 /** Стилизируем меню **/
 nav
@@ -17,7 +35,7 @@ nav
         .menu_link
             font-size: 15px
             font-weight: 300
-            color: #ffffff
+            color: $white_color
 
         .menu_item
             border-right: 2px dotted yellow
@@ -27,6 +45,9 @@ nav
 .subheader 
     height: 84px
     background-color: rgba(0,0,0,0.6)
+    // Устанавливаем абсолют и ширину 100% от родителя, Чтобы наложилось на фон
+    position: absolute
+    width: 100%
 
     .subheader_logo
         display: block
@@ -37,14 +58,14 @@ nav
         opacity: 0.5
         font-size: 13px
         font-weight: 100
-        color: #ffffff
+        color: $white_color
 
     .subheader_call
         margin-top: 23px
         text-align: right
         font-size: 12px
         font-weight: 300
-        color: #ffffff
+        color: $white_color
 
     .subheader_number
         margin-top: 8px
@@ -55,27 +76,73 @@ nav
         font-size: 22px
         font-weight: 400
         text-transform: uppercase
-        color: #ffffff
+        color: $white_color
         
         .dot
             display: inline-block
             margin: 6px 0 6px 0
             width: 4px
             height: 4px
-            background-color: #ffffff
+            background-color: $white_color
             border-radius: 2px
 
     .subheader_btn
         margin: 19px 0 19px 0 
         width: 172px
         height: 46px
+        font-size: 14px
+        // То, что будет лежать в мексине:
         background-image: linear-gradient(0.0deg, #1eacc7 0%, #4ce2ff 100%)
         border: none
         border-radius: 4px
-
         box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.2)
-        font-size: 14px
         font-weight: 400
         text-transform: uppercase
-        color: #ffffff 
+        color: $white_color
+
+        
+       
+
+// Секция ПРОМО
+.promo
+    background-image: url(../img/backgrounds/first_screen.jpg)
+    height: 664px
+    padding: 151px 0 135px 0
+    .promo_header
+        font-size: 60px
+        font-weight: 900
+        text-transform: uppercase
+        color: $white_color
+        text-align: center
+        line-height: 57px
+    .promo_subheader
+        font-size: 36px
+        font-weight: 700
+        text-transform: uppercase
+        color: $white_color
+        text-align: center
+        margin: 8px 0 0 0
+        line-height: 40px
+    .promo_text
+        font-size: 18px
+        line-height: 24px
+        font-weight: 400
+        color: #ffffff
+        text-align: center
+        margin-top: 23px
+        min-width: 955px 
+    .promo_btn
+        display: block
+        margin: 118px auto
+        width: 259px
+        height: 63px
+        font-size: 18px
+        // Мексина:
+        background-image: linear-gradient(0.0deg, #1eacc7 0%, #4ce2ff 100%)
+        border: none
+        border-radius: 4px
+        box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.2)
+        font-weight: 400
+        text-transform: uppercase
+        color: $white_color
                
