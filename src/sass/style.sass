@@ -1,7 +1,10 @@
 // Задаем цвет в переменную
-$white_color:   #ffffff
+$white_color: #ffffff
+$black_color: #000000
+$black_headings: #222222
 
-// Записываем стиль кнопки в мексину
+
+// Записываем мексины:
 /** @mexin blue_button() 
     background-image: linear-gradient(0.0deg, #1eacc7 0%, #4ce2ff 100%)
     border: none
@@ -11,9 +14,14 @@ $white_color:   #ffffff
     text-transform: uppercase
     color: $white_color **/
 
+/** @mexin flex()
+    display: flex
+    justify-content: center
+    align-items: center **/
+
  
 *
-    font-family: 'Roboto' /** sans-serif **/
+    font-family: 'Roboto' 
     font-style: sans-serif
 
 header
@@ -106,7 +114,7 @@ nav
 // Секция ПРОМО
 .promo
     background-image: url(../img/backgrounds/first_screen.jpg)
-    height: 664px
+    height: 748px
     padding: 151px 0 135px 0
     .promo_header
         font-size: 60px
@@ -127,7 +135,7 @@ nav
         font-size: 18px
         line-height: 24px
         font-weight: 400
-        color: #ffffff
+        color: $white_color
         text-align: center
         margin-top: 23px
         min-width: 955px 
@@ -145,4 +153,58 @@ nav
         font-weight: 400
         text-transform: uppercase
         color: $white_color
+
+
+// Секция Преимущества
+.advantages
+    padding: 71px 0 65px 0 
+    .advantages_header
+        width: 112px
+        height: 24px
+        background-color: $black_color
+        margin: 0 auto
+        // Мексина: флекс
+        display: flex
+        justify-content: center
+        align-items: center
+        div
+            font-size: 11px
+            font-weight: 100
+            text-transform: uppercase
+            color: $white_color
+    .advantages_subheader
+        font-size: 38px
+        font-weight: 700
+        text-transform: uppercase
+        color: $black_headings    
+        margin-top: 38px
+        text-align: center
+    
+    .advantages_item
+        display: flex
+        justify-content: space-around
+        align-items: center
+        margin-top: 40px
+        .advantages_icon
+            width: 113px
+            height: 113px
+            background-color: #1eacc7
+            border-radius: 56.5px
+            // Мексина: флекс
+            display: flex
+            justify-content: center
+            align-items: center
+        .advantages_text
+            width: 341px
+            height: 141px
+            span
+                font-size: 17px
+                line-height: 21px
+                font-weight: 400
+                color: #1eacc7
+            font-size: 15px
+            font-weight: 300
+            color: #202020
+            
+        
                
