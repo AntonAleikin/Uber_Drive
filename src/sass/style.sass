@@ -2,24 +2,48 @@
 $white_color: #ffffff
 $black_color: #000000
 $black_headings: #222222
+$darck_blue: #1ca8c3
 
 
 // Записываем мексины:
-/** @mexin blue_button() 
+
+=blue_button 
     background-image: linear-gradient(0.0deg, #1eacc7 0%, #4ce2ff 100%)
     border: none
     border-radius: 4px
     box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.2)
     font-weight: 400
     text-transform: uppercase
-    color: $white_color **/
+    color: $white_color
 
-/** @mexin flex()
+// Создаем мексину для :hover Кнопок
+=btn_hover
+    &:hover // С помощью амперсанта добавляем ховер прямо к тегу, к которому будет добавлена мексина (btn)
+        background-image: none // Убираем стандартный фон
+        background-color: $darck_blue // Задаем новый цвет фона (более темный) другим свойством 
+
+=flex
     display: flex
     justify-content: center
-    align-items: center **/
+    align-items: center
 
- 
+=header_frame
+    width: 112px
+    height: 24px
+    margin: 0 auto
+    font-size: 11px
+    font-weight: 100
+    text-transform: uppercase
+    +flex
+        
+=subheader_frame
+    line-height: 27px
+    font-size: 38px
+    font-weight: 700
+    text-transform: uppercase
+    text-align: center       
+
+
 *
     font-family: Roboto, sans-serif
     
@@ -106,14 +130,11 @@ nav
         width: 172px
         height: 46px
         font-size: 14px
-        // То, что будет лежать в мексине:
-        background-image: linear-gradient(0.0deg, #1eacc7 0%, #4ce2ff 100%)
-        border: none
-        border-radius: 4px
-        box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.2)
-        font-weight: 400
-        text-transform: uppercase
-        color: $white_color
+        // мексина
+        +blue_button
+        // Добавление мексина Ховер к кнопке
+        +btn_hover
+        
 
         
        
@@ -153,39 +174,20 @@ nav
         height: 63px
         font-size: 18px
         // Мексина:
-        background-image: linear-gradient(0.0deg, #1eacc7 0%, #4ce2ff 100%)
-        border: none
-        border-radius: 4px
-        box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.2)
-        font-weight: 400
-        text-transform: uppercase
-        color: $white_color
-
+        +blue_button
+        +btn_hover
 
 // Секция Преимущества
 .advantages
     padding: 71px 0 65px 0 
     .advantages_header
-        width: 112px
-        height: 24px
+        +header_frame
         background-color: $black_color
-        margin: 0 auto
-        // Мексина: флекс
-        display: flex
-        justify-content: center
-        align-items: center
-        div
-            font-size: 11px
-            font-weight: 100
-            text-transform: uppercase
-            color: $white_color
+        color: $white_color
     .advantages_subheader
-        font-size: 38px
-        font-weight: 700
-        text-transform: uppercase
-        color: $black_headings    
-        margin-top: 38px
-        text-align: center
+        +subheader_frame
+        color: $black_headings
+        margin: 38px 0 0 0
     
     .advantages_item
         display: flex
@@ -198,9 +200,7 @@ nav
             background-color: #1eacc7
             border-radius: 56.5px
             // Мексина: флекс
-            display: flex
-            justify-content: center
-            align-items: center
+            +flex
         .advantages_text
             width: 341px
             height: 141px
@@ -220,27 +220,13 @@ nav
     padding: 48px 0 80px 0 
     background: url(../img/backgrounds/uber_app.jpg) center (center / cover) no-repeat
     .opportunities_header
-        width: 112px
-        height: 24px
+        +header_frame
         background-color: $black_color
-        margin: 0 auto
-        font-size: 11px
-        font-weight: 100
-        text-transform: uppercase
-        color: $white_color 
-        // Мексина: флекс
-        display: flex
-        justify-content: center
-        align-items: center
-           
+        color: $white_color
     .opportunities_subheader
-        line-height: 27px
-        font-size: 38px
-        font-weight: 700
-        text-transform: uppercase
+        +subheader_frame
         color: $black_headings
         margin: 38px 0 0 0
-        text-align: center
     .opportunities_subheader_text
         font-size: 17px
         font-weight: 400
@@ -284,15 +270,36 @@ nav
             border-radius: 13px
             cursor: pointer
             // Мексина: флекс 
-            display: flex
-            justify-content: center
-            align-items: center
+            +flex
             // Устанавливаем плюс всегда снизу блока, с помощью Абсолютного позиционирования
             position: absolute
             bottom: 35px
             left: 50% // отодвигаем на 50% родителя - в центр
             // При смещении на 50%, элем размещается не по центру, а чуть правее - начиная со второй половины
             transform: translateX(-50%) // Сдвигаем элемем по Х на 50% его ширины обратно, чтобы он встал точно по-центру 
+
+            // Создаем ПЛЮС с помощью псевдо элементов
+            &::before // Создаем горизонтальную линию с помощью ширины и before
+                content: "" 
+                display: block
+                width: 14px
+                height: 2px // ставим наугад
+                background-color: $darck_blue
+            &::after // Создаем вертикальную линию с помощью высоты и after
+                content: ""
+                display: block
+                width: 2px
+                height: 14px
+                background-color: $darck_blue
+                // Сдвигаем вертикальную часть в центр с помощью абсолютного позиционирования и transform
+                position: absolute
+                left: 50%
+                transform: translateX(-50%)
+            &:hover // Добавляем всему плюсу ховер
+                background-color: #ff5656
+                &::before, &::after // Добавляем ховер также к его псевдоэлементам
+                    background-color: #fff
+                
 
 
 // Секция Выбор - отличная штука
@@ -301,25 +308,13 @@ nav
     padding: 56px 0 138px 0 
     background: url(../img/backgrounds/great_choise_bg.jpg) center (center / cover) no-repeat
     .great_choise_header
-        width: 112px
-        height: 24px
+        +header_frame
         background-color: $white_color
-        margin: 0 auto
-        font-size: 11px
-        font-weight: 100
-        text-transform: uppercase
         color: #070716
-        // Мексина: флекс
-        display: flex
-        justify-content: center
-        align-items: center
+        
     .great_choise_subheader
-        line-height: 27px
-        font-size: 38px
-        font-weight: 700
-        text-transform: uppercase
+        +subheader_frame
         color: $white_color
-        text-align: center
         margin: 32px 0 0 0
     .great_choise_subheader_text
         font-size: 17px
@@ -338,3 +333,80 @@ nav
         width: 297px
         margin: 0 auto
         margin-top: 4px 
+
+
+// Секция Условия и требования
+.requirements
+    // min-height: 919px Не указываем
+    padding: 68px 0 55px 0 // Боттом мы уменьшили на мар-боттом req_item, чтобы суммарно выходило 84
+    .requirements_header
+        +header_frame
+        background-color: $black_color
+        color: $white_color
+    .requirements_subheader
+        +subheader_frame
+        color: $black_headings
+        margin: 33px 0 0 0 
+
+    .requirements_item
+        margin: 33px 0 29px 0 
+        .item_header
+            font-size: 22px
+            font-weight: 400
+            color: #1ca8c3
+        .list 
+            margin-top: 15px // Измеряем линейкой в фш, если не видно так
+            padding-inline-start: 50px // Также меряем линейкой отступ слева от колонки до булетов
+            li 
+                font-size: 17px
+                font-weight: 300
+                color: $black_headings
+                list-style-type: none
+                margin-bottom: 10px // Расстояние между элемами - тоже меряем линейкой и на глаз 
+                position: relative // Ставим сюда, чтобы точно этот элем был родителем псевдо
+                
+                // Создаем галочку с помощью псевдоэлементов
+                &::before
+                    content: ""
+                    width: 21px
+                    height: 20px
+                    // Наивно начал создавать круг и галочку сам в CSS)
+                    border-radius: 100%
+                    border: 1px solid #1ca8c3
+
+                    // Добавляем как бекграунд картинку с галочкой
+                    background: url(../img/icons/requirements/checked_blue.png) center (center / cover) no-repeat
+
+                    // ВЫРАВНИВАЕМ ПСЕВДОЭЛЕМЕНТ С ПОМОЩЬЮ АБСОЛЮТНОГО ПОЗИЦИОНИРОВАНИЯ (УДОБНО И ЧЕТКО)
+                    display: block
+                    position: absolute
+                    left: -32px // Расстояние между текстом и блоком + ширину блока (иконки)
+
+                    // Чтобы элем встал по-центру
+                    //top: 50%
+                    //transform: translateY(-50%)
+
+                    // Выравниваем так, чтобы элем был четко напротив первых строчек текста
+                    top: 3px // На глаз подбираем и задаем отступ сверху
+                    
+                    
+                    // ВЫРАВНИВАНИЕ ПСЕВДО-ЭЛЕМА С ПОМОЩЬЮ ИНЛАЙН-БЛОЧНОЙ ВЕРСТКИ (МОРУДНО,НЕТОЧНО)
+                    // Выравниваем по-вертикале inline-block элемент с помощью vertical-align!
+                    //display: inline-block
+                    //vertical-align: middle 
+                    // Сдвигаем по-горизонтали и вертикале с помощью трансформ
+                    //transform: translate(-6px, -2px)
+
+        .item_text
+            font-size: 17px
+            font-weight: 300
+            color: #1ca8c3
+
+    // Добавляем доп класс с изменениями НА ТОТ ЖЕ УРОВЕНЬ, что и класс, который будем менять (.requirements_item)
+    .red
+        .item_header
+            color: #ff5656
+        .list
+            li
+                &::before
+                    background: url(../img/icons/requirements/checked_red.png) center (center / cover) no-repeat
