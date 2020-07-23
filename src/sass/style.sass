@@ -41,7 +41,12 @@ $darck_blue: #1ca8c3
     font-size: 38px
     font-weight: 700
     text-transform: uppercase
-    text-align: center       
+    text-align: center
+
+=section_text       
+    font-size: 17px
+    font-weight: 400
+    text-align: center
 
 
 *
@@ -52,88 +57,108 @@ header
     position: relative
     height: 51px
 
-/** Стилизируем меню **/
-nav
-    height: 51px
-    background-color: #212121
+    // Стилизируем меню 
+    .header_nav
+        height: 51px
+        background-color: #212121
 
-    // Липкая шапка
-    position: fixed
-    width: 100%
-    z-index: 2
+        // Липкая шапка
+        position: fixed
+        width: 100%
+        z-index: 2
 
-    .menu
-        padding: 13.5px 71px 
-        margin: 0
-        list-style-type: none
+        .menu
+            padding: 13.5px 71px 
+            margin: 0
+            list-style-type: none
 
-        display: flex
-        justify-content: space-between
+            display: flex
+            justify-content: space-between
 
-        .menu_link
-            font-size: 15px
+            .menu_link
+                font-size: 15px
+                font-weight: 300
+                color: $white_color
+
+            // Создаем разделители между элементами меню 
+            .menu_item
+                position: relative 
+                &::after
+                    content: ""
+                    display: block
+                    width: 2px
+                    height: 31px
+                    background-color: $black_color
+                    // Расположение:
+                    position: absolute
+                    right: -31px // Померяли в ФШ + на глаз
+                    // Выравниваем по-центру:
+                    top: 50%
+                    transform: translateY(-50%)
+
+                // Убираем Псевдоэлем (разделитель) у послежнего элемента меню 
+                &:last-child
+                    &::after
+                        content: ""
+                        display: none
+                    
+                
+
+    // Стилизируем Сабхедер 
+    .subheader 
+        margin-top: 51px
+        height: 84px
+        background-color: rgba(0,0,0,0.6)
+        // Устанавливаем абсолют и ширину 100% от родителя, Чтобы наложилось на фон
+        position: absolute
+        width: 100%
+
+        .subheader_logo
+            display: block
+            margin-top: 16px
+
+        .subheader_logo_text
+            margin-top: 6px
+            opacity: 0.5
+            font-size: 13px
+            font-weight: 100
+            color: $white_color
+
+        .subheader_call
+            margin-top: 23px
+            text-align: right
+            font-size: 12px
             font-weight: 300
             color: $white_color
 
-        .menu_item
-            border-right: 2px dotted yellow
-            padding-right: 28px 
+        .subheader_number
+            margin-top: 8px
+            display: block // Делаем блок, чтобы выровнять текст
+            text-align: right
+            line-height: 16px // Чтобы контент был четко по рамкам блока - ставим высоту строки = высоте блока с текстом из макета 
+            
+            font-size: 22px
+            font-weight: 400
+            text-transform: uppercase
+            color: $white_color
+            
+            .dot
+                display: inline-block
+                margin: 6px 0 6px 0
+                width: 4px
+                height: 4px
+                background-color: $white_color
+                border-radius: 2px
 
-/** Стилизируем Сабхедер **/
-.subheader 
-    margin-top: 51px
-    height: 84px
-    background-color: rgba(0,0,0,0.6)
-    // Устанавливаем абсолют и ширину 100% от родителя, Чтобы наложилось на фон
-    position: absolute
-    width: 100%
-
-    .subheader_logo
-        display: block
-        margin-top: 16px
-
-    .subheader_logo_text
-        margin-top: 6px
-        opacity: 0.5
-        font-size: 13px
-        font-weight: 100
-        color: $white_color
-
-    .subheader_call
-        margin-top: 23px
-        text-align: right
-        font-size: 12px
-        font-weight: 300
-        color: $white_color
-
-    .subheader_number
-        margin-top: 8px
-        display: block // Делаем блок, чтобы выровнять текст
-        text-align: right
-        line-height: 16px // Чтобы контент был четко по рамкам блока - ставим высоту строки = высоте блока с текстом из макета 
-        
-        font-size: 22px
-        font-weight: 400
-        text-transform: uppercase
-        color: $white_color
-        
-        .dot
-            display: inline-block
-            margin: 6px 0 6px 0
-            width: 4px
-            height: 4px
-            background-color: $white_color
-            border-radius: 2px
-
-    .subheader_btn
-        margin: 19px 0 19px 0 
-        width: 172px
-        height: 46px
-        font-size: 14px
-        // мексина
-        +blue_button
-        // Добавление мексина Ховер к кнопке
-        +btn_hover
+        .subheader_btn
+            margin: 19px 0 19px 0 
+            width: 172px
+            height: 46px
+            font-size: 14px
+            // мексина
+            +blue_button
+            // Добавление мексина Ховер к кнопке
+            +btn_hover
         
 
         
@@ -194,14 +219,15 @@ nav
         justify-content: space-around
         align-items: center
         margin-top: 40px
-        .advantages_icon
+        .item_icon
             width: 113px
             height: 113px
             background-color: #1eacc7
             border-radius: 56.5px
             // Мексина: флекс
             +flex
-        .advantages_text
+
+        .item_text
             width: 341px
             height: 141px
             span
@@ -228,11 +254,10 @@ nav
         color: $black_headings
         margin: 38px 0 0 0
     .opportunities_subheader_text
-        font-size: 17px
-        font-weight: 400
+        +section_text
         color: $black_headings
         margin-top: 19px 
-        text-align: center 
+         
 
     // Стилищируем блоки с картинками
     .opportunities_item
@@ -307,6 +332,7 @@ nav
     min-height: 896px
     padding: 56px 0 138px 0 
     background: url(../img/backgrounds/great_choise_bg.jpg) center (center / cover) no-repeat
+
     .great_choise_header
         +header_frame
         background-color: $white_color
@@ -317,10 +343,8 @@ nav
         color: $white_color
         margin: 32px 0 0 0
     .great_choise_subheader_text
-        font-size: 17px
-        font-weight: 400
+        +section_text
         color: $white_color
-        text-align: center
         margin-top: 19px
     img
         margin-top: 56px
@@ -410,3 +434,130 @@ nav
             li
                 &::before
                     background: url(../img/icons/requirements/checked_red.png) center (center / cover) no-repeat
+
+
+
+// Секция По всему миру
+.global
+    min-height: 717px
+    padding: 49px 0 49px 0
+    background: url(../img/backgrounds/around_the_world_bg.jpg) center (center / cover) no-repeat
+
+    .global_header
+        +header_frame
+        background-color: $white_color
+        color: #070716
+    .global_subheader
+        +subheader_frame
+        color: $white_color
+        margin-top: 32px
+    .global_text
+        +section_text
+        color: $white_color
+        margin-top: 20px
+    .global_action_text
+        font-size: 15px
+        font-weight: 400
+        text-transform: uppercase
+        color: #1fbad6
+        margin-top: 486px
+        text-align: center
+        display: block
+        text-decoration: none
+
+
+// ФУТЕР
+footer
+    min-height: 156px
+    padding: 50px 23px 39px 23px
+    position: relative
+
+    &::before
+        content: ""
+        display: block
+        position: absolute
+        top: 14px
+        left: 50%
+        transform: translateX(-50%)
+        width: 299px
+        height: 4px
+        background-color: #1fbad6 
+    &::after
+        content: ""
+        display: block
+        position: absolute
+        bottom: 0
+        left: 50%
+        transform: translateX(-50%)
+        width: 100%
+        height: 8px
+        background-color: #070716
+
+    .footer_nav
+        position: relative
+        // Стилизация ссылок на соцсети
+        .footer_icons
+            display: flex
+            justify-content: flex-start
+            position: absolute
+            top: 0
+            left: 0
+            z-index: 1 // Больше чем у правых иконок, чтобы они не перебивали флексом, но меньше чем у меню
+            .social_item
+                +flex
+                width: 32px
+                height: 32px
+                background-color: #070716
+                border-radius: 100%
+                margin-right: 9px
+                // Добавляем цвет к нашим иконкам просто с помощью цвета текста, так как они шрифты!
+                // Цвет текста добавляется к родительскому элементу иконки, а не к ней самой (документация)
+                color: $white_color
+
+        // Перестилизация для правых иконок  
+        .apps 
+            z-index: 0 // Минимальный (не отрицательный) Z, чтобы не перебивать соцсети (стоит после них в доке)
+            right: 0
+            justify-content: flex-end
+            .apps_item
+                +flex
+                margin-left: 9px
+            
+    .footer_menu
+        display: flex
+        justify-content: space-between
+        list-style-type: none
+        line-height: 14px
+        padding: 0 12.5px
+        // Устанавливаем самый высокий положительный Z, чтобы выдвинуть меню на первый план
+        position: relative
+        z-index: 2
+
+        .menu_link
+            text-decoration: none
+            font-size: 15px
+            font-weight: 300
+            text-transform: uppercase
+            color: #070716
+
+    .grey // Перестелизация нижних (серых) элементов меню 
+        padding: 0 0
+        line-height: 10px
+        margin: 0 0
+        .menu_link
+            font-size: 11px
+            font-weight: 300
+            text-transform: uppercase
+            color: #999999
+    
+    .language
+        font-size: 11px
+        font-weight: 400
+        text-transform: uppercase
+        color: #1fbad6
+        display: block
+        margin-top: 19px
+        text-align: center
+        text-decoration: none
+        
+

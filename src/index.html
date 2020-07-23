@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uber Drive</title>
+    <title>Taxi Company</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/style.min.css"> 
+    <script src="https://kit.fontawesome.com/5e35531cf0.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header> <!-- Шапка -->
-        <nav> <!-- Навигационное меню  --> 
+        <nav class="header_nav"> <!-- Навигационное меню  --> 
             <div class="container"> <!-- Создали блок-ограничитель bootstrap-grid --> 
-                <ul class="menu"> <!-- Список, внутриэлементов списка - ссылки из меню -->
+                <ul class="menu"> <!-- Список, внутриэлементов списка - ссылки из меню --> 
                     <li class="menu_item"><a href="#" class="menu_link">Главная</a></li>
                     <li class="menu_item"><a href="" class="menu_link">Со своим автомобилем</a></li>
                     <li class="menu_item"><a href="" class="menu_link">На автомобиле компании</a></li>
@@ -85,10 +86,10 @@
             <div class="row"> <!-- Первый ряд -->
                 <div class="col"> 
                     <div class="advantages_item">
-                        <div class="advantages_icon">
+                        <div class="item_icon">
                             <img src="img/icons/reasons_to_work_with_us/automatical_payments.png" alt="Stable payments">
                         </div>
-                        <div class="advantages_text">
+                        <div class="item_text">
                             <span>Никаких наличных, оплата происходит автоматически</span><br>
                             Стоимость поездки оплачивается пассажиром с привязанной банковской карты, т.е. нет никаких рисков связанных с перевозкой наличности как для пассажира, так и для водителя, Вам не нужно искать мелкие деньги для размена.
                         </div> 
@@ -97,10 +98,10 @@
                 
                 <div class="col"> 
                     <div class="advantages_item">
-                        <div class="advantages_icon"> 
+                        <div class="item_icon"> 
                             <img src="img/icons/reasons_to_work_with_us/commission_bonuses.png" alt="High commission + bonuses">
                         </div>
-                        <div class="advantages_text">
+                        <div class="item_text">
                             <span>Комиссия 8% + БОНУСЫ</span><br>
                             У нас минимальная комиссия и мы выплачиваем бонусы за каждую поездку, некоторые наши конкуренты оставляют бонусы себе. Мы работаем честно и с нами водители зарабатывают больше!
                         </div> 
@@ -111,10 +112,10 @@
             <div class="row"> <!-- Второй ряд  -->
                 <div class="col">
                     <div class="advantages_item">
-                        <div class="advantages_icon"> 
+                        <div class="item_icon"> 
                             <img src="img/icons/reasons_to_work_with_us/high_earnings.png" alt="High earnings">
                         </div>
-                        <div class="advantages_text">
+                        <div class="item_text">
                             <span>Высокий доход с гарантированными выплатами</span><br>
                             Мы выплачиваем заработную плату на личную банковскую карту водителя! Вам не нужно оформлять ООО, ИП, платить налоги, подавать декларацию, оплачивать бухгалтерские услуги и ведение банковского счета.
                         </div> 
@@ -123,10 +124,10 @@
 
                 <div class="col">
                     <div class="advantages_item">
-                        <div class="advantages_icon"> 
+                        <div class="item_icon"> 
                             <img src="img/icons/reasons_to_work_with_us/comfortable_schedule.png" alt="flexible schedule">
                         </div>
-                        <div class="advantages_text">
+                        <div class="item_text">
                             <span>Работа в удобное время, никаких графиков</span><br>
                             Вы просто нажимаете кнопку выйти на линию для начала работы, когда решите закончить, нажимаете выйти с линии. Вы можете подрабатывать только утром, вечером, в выходные или праздничные дни!
                         </div> 
@@ -137,10 +138,10 @@
             <div class="row"> <!-- Третий ряд --> 
                 <div class="col">
                     <div class="advantages_item">
-                        <div class="advantages_icon">
+                        <div class="item_icon">
                             <img src="img/icons/reasons_to_work_with_us/easy_connection.png" alt="easy connection">
                         </div>
-                        <div class="advantages_text">
+                        <div class="item_text">
                             <span>Комфортное, прозрачное и простое подключение</span><br>
                             Мы подключаем дистанционно и бесплатно, Вам нет необходимости приезжать к нам! Вы присылаете нам копии документов, мы регистрируем Вас и присылаем данные для подключения, через 1-2 дня Вы можете начинать работать!
                         </div> 
@@ -149,10 +150,10 @@
 
                 <div class="col">
                     <div class="advantages_item">
-                        <div class="advantages_icon"> 
+                        <div class="item_icon"> 
                             <img src="img/icons/reasons_to_work_with_us/many_orders.png" alt="High volume of orders">
                         </div>
-                        <div class="advantages_text">
+                        <div class="item_text">
                             <span>Всегда большое количество заказов</span><br>
                             Приложение показывает, где на данный момент больше всего заказов и где действуют повышенные тарифы. У Вас не будет простоя и холостых пробегов. Наши пассажиры всегда приятные и абсолютно неконфликтные люди, которых приятно возить.
                         </div> 
@@ -163,10 +164,10 @@
             <div class="row"> <!-- Четвертый ряд -->
                 <div class="col">
                     <div class="advantages_item">
-                        <div class="advantages_icon">
+                        <div class="item_icon">
                             <img src="img/icons/reasons_to_work_with_us/support.png" alt="support 24/7">
                         </div>
-                        <div class="advantages_text">
+                        <div class="item_text">
                             <span>Круглосуточная поддержка</span><br>
                             В Uber действует круглосуточная поддержка водителей по электронной почте. Если что-то непонятно, Вы всегда можете задать вопрос через On-line консультацию.
                         </div> 
@@ -175,10 +176,10 @@
 
                 <div class="col">
                     <div class="advantages_item">
-                        <div class="advantages_icon"> 
+                        <div class="item_icon"> 
                             <img src="img/icons/reasons_to_work_with_us/without_stickers.png" alt="without stickers and logo">
                         </div>
-                        <div class="advantages_text">
+                        <div class="item_text">
                             <span>Без шашечек и наклеек</span><br>
                             Вам не нужно менять цвет, устанавливать «шашки» на автомобиль и обклеивать его наклейками.
                         </div> 
@@ -338,5 +339,64 @@
             </div>
         </div>
     </section>
+
+    <!-- Секция По всему миру --> 
+    <section class="global">
+        <div class="contaoner">
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+
+                    <div class="global_header">города</div>
+                    <h2 class="global_subheader">По всему миру</h2>
+                    <div class="global_text">Мы в вашем городе и по всему миру</div>
+                    <a class="global_action_text" href="#">посмотреть все города</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+
+        <nav class="footer_nav"> 
+
+                <!-- Соцсети -->
+                <div class="footer_icons">
+                    <a href="#" class="social_item"><i class="fab fa-facebook-f"></i></a>
+                    <a href="" class="social_item"><i class="fab fa-twitter"></i></a>
+                    <a href="" class="social_item"><i class="fab fa-linkedin"></i></a>
+                    <a href="" class="social_item"><i class="fab fa-instagram"></i></a>
+                </div>
+
+            <div class="container">
+                <div class="col-md-4 offset-md-4">
+                    <!-- Верхняя часть меню (толстым шрифтом) --> 
+                    <ul class="footer_menu">
+                        <li><a href="#" class="menu_link">на главную</a></li>
+                        <li><a href="" class="menu_link">города</a></li>
+                        <li><a href="" class="menu_link">для водителей</a></li>
+                    </ul>
+
+                    <!-- Нижняя часть меню (тонким шрифтом) -->
+                    <ul class="footer_menu grey"> 
+                        <li><a href="#" class="menu_link">центр поддержки</a></li>
+                        <li><a href="" class="menu_link">вакансии</a></li>
+                        <li><a href="" class="menu_link">разработчики</a></li>
+                        <li><a href="" class="menu_link">блог</a></li>
+                        <li><a href="" class="menu_link">о нас</a></li>
+                    </ul>
+
+                    <a href="#" class="language">русский</a>
+                </div>
+            </div>
+
+            <!-- Приложения -->
+            <div class="footer_icons apps">
+                <a href="" class="apps_item"><img src="img/icons/footer/app_store.png" alt="apple app store logo"></a>
+                <a href="" class="apps_item"><img src="img/icons/footer/google_play.png" alt="google play logo"></a>
+                <a href="" class="apps_item"><img src="img/icons/footer/windows_store.png" alt="windows store logo"></a>
+            </div>
+        </nav>
+    </footer>
 </body>
 </html>
