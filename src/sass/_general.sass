@@ -1,0 +1,509 @@
+header
+    position: relative
+    height: 51px
+
+// Стилизируем меню 
+.header_nav
+    height: 51px
+    background-color: #212121
+
+    // Липкая шапка
+    position: fixed
+    width: 100%
+    z-index: 2
+
+.menu
+    padding: 13.5px 71px 
+    margin: 0
+    list-style-type: none
+
+    display: flex
+    justify-content: space-between
+
+    &_link
+        font-size: 15px
+        font-weight: 300
+        color: $white_color
+        &:hover
+            text-decoration: none
+            color: $white_color
+ 
+    // Создаем разделители между элементами меню 
+    &_item
+        position: relative 
+        &::after
+            content: ""
+            display: block
+            width: 2px
+            height: 31px
+            background-color: $black_color
+            // Расположение:
+            position: absolute
+            right: -31px // Померяли в ФШ + на глаз
+            // Выравниваем по-центру:
+            top: 50%
+            transform: translateY(-50%)
+
+        // Убираем Псевдоэлем (разделитель) у послежнего элемента меню 
+        &:last-child
+            &::after
+                content: ""
+                display: none
+                    
+                
+
+// Стилизируем Сабхедер 
+.subheader 
+    margin-top: 51px
+    height: 84px
+    background-color: rgba(0,0,0,0.6)
+    // Устанавливаем абсолют и ширину 100% от родителя, Чтобы наложилось на фон
+    position: absolute
+    width: 100%
+
+    .subheader_logo
+        display: block
+        margin-top: 16px
+
+    .subheader_logo_text
+        margin-top: 6px
+        opacity: 0.5
+        font-size: 13px
+        font-weight: 100
+        color: $white_color
+
+    .subheader_call
+        margin-top: 23px
+        text-align: right
+        font-size: 12px
+        font-weight: 300
+        color: $white_color
+
+    .subheader_number
+        margin-top: 8px
+        display: block // Делаем блок, чтобы выровнять текст
+        text-align: right
+        line-height: 16px // Чтобы контент был четко по рамкам блока - ставим высоту строки = высоте блока с текстом из макета 
+        
+        font-size: 22px
+        font-weight: 400
+        text-transform: uppercase
+        color: $white_color
+        
+        .dot
+            display: inline-block
+            margin: 6px 0 6px 0
+            width: 4px
+            height: 4px
+            background-color: $white_color
+            border-radius: 2px
+
+    .subheader_btn
+        margin: 19px 0 19px 0 
+        width: 172px
+        height: 46px
+        font-size: 14px
+        // мексина
+        +blue_button
+        // Добавление мексина Ховер к кнопке
+        +btn_hover
+        
+
+        
+       
+
+// Секция ПРОМО
+.promo
+    background: url(../img/backgrounds/first_screen.jpg) center (center / cover) no-repeat
+    min-height: 748px
+    padding: 151px 0 135px 0
+    &_header
+        font-size: 60px
+        font-weight: 900
+        text-transform: uppercase
+        color: $white_color
+        text-align: center
+        line-height: 57px
+    &_subheader
+        font-size: 36px
+        font-weight: 700
+        text-transform: uppercase
+        color: $white_color
+        text-align: center
+        margin: 8px 0 0 0
+        line-height: 40px
+    &_text
+        font-size: 18px
+        line-height: 24px
+        font-weight: 400
+        color: $white_color
+        text-align: center
+        margin-top: 23px
+    &_btn
+        display: block
+        margin: 118px auto
+        width: 259px
+        height: 63px
+        font-size: 18px
+        // Мексина:
+        +blue_button
+        +btn_hover
+
+// Секция Преимущества
+.advantages
+    padding: 71px 0 65px 0 
+    .advantages_header
+        +header_frame
+        background-color: $black_color
+        color: $white_color
+    .advantages_subheader
+        +subheader_frame
+        color: $black_headings
+        margin: 38px 0 0 0
+    
+    .advantages_item
+        display: flex
+        justify-content: space-around
+        // Выравниваем всех в самый верх (старт) по-вертикали, чтобы все уровнялись в одном Роу 
+        align-items: flex-start
+        margin-top: 40px
+        .item_icon
+            width: 113px
+            height: 113px
+            background-color: #1eacc7
+            border-radius: 56.5px
+            // Мексина: флекс
+            +flex
+
+        .item_text
+            width: 341px
+            min-height: 141px
+            span
+                font-size: 17px
+                line-height: 21px
+                font-weight: 400
+                color: #1eacc7
+            font-size: 15px
+            font-weight: 300
+            color: #202020
+
+
+// Секция Мобильное приложение
+.opportunities
+    min-height: 864px
+    padding: 48px 0 80px 0 
+    background: url(../img/backgrounds/uber_app.jpg) center (center / cover) no-repeat
+    .opportunities_header
+        +header_frame
+        background-color: $black_color
+        color: $white_color
+    .opportunities_subheader
+        +subheader_frame
+        color: $black_headings
+        margin: 38px 0 0 0
+    .opportunities_subheader_text
+        +section_text
+        color: $black_headings
+        margin-top: 19px 
+         
+
+    // Стилищируем блоки с картинками
+    .opportunities_item
+        width: 320px
+        height: 280px
+        margin: 32px 67px -13px 0
+        padding: 91px 0 35px 0
+        position: relative
+
+        // Добавляем задний фон с помощью & и доп названия второго класса для КАЖДОГО элема
+        &_one_click
+            background: url(../img/pic/uber_mobile_app/one_click.jpg) center (center / cover) no-repeat
+        &_reliability
+            background: url(../img/pic/uber_mobile_app/reliability.jpg) center (center / cover) no-repeat
+        &_clear_prices
+            background: url(../img/pic/uber_mobile_app/clear_prices.jpg) center (center / cover) no-repeat
+        &_payments
+            background: url(../img/pic/uber_mobile_app/cashless_payments.jpg) center (center / cover) no-repeat
+        &_feedback
+            background: url(../img/pic/uber_mobile_app/feedback.jpg) center (center / cover) no-repeat
+        &_devide_price
+            background: url(../img/pic/uber_mobile_app/devide_price.jpg) center (center / cover) no-repeat
+
+        .opportunities_text
+            font-size: 24px
+            line-height: 31px
+            font-weight: 400
+            text-transform: uppercase
+            color: $white_color
+            text-align: center
+        .opportunities_plus
+            width: 26px
+            height: 26px
+            background-color: $black_color
+            border-radius: 13px
+            cursor: pointer
+            // Мексина: флекс 
+            +flex
+            // Устанавливаем плюс всегда снизу блока, с помощью Абсолютного позиционирования
+            position: absolute
+            bottom: 35px
+            left: 50% // отодвигаем на 50% родителя - в центр
+            // При смещении на 50%, элем размещается не по центру, а чуть правее - начиная со второй половины
+            transform: translateX(-50%) // Сдвигаем элемем по Х на 50% его ширины обратно, чтобы он встал точно по-центру 
+
+            // Создаем ПЛЮС с помощью псевдо элементов
+            &::before // Создаем горизонтальную линию с помощью ширины и before
+                content: "" 
+                display: block
+                width: 14px
+                height: 2px // ставим наугад
+                background-color: $darck_blue
+            &::after // Создаем вертикальную линию с помощью высоты и after
+                content: ""
+                display: block
+                width: 2px
+                height: 14px
+                background-color: $darck_blue
+                // Сдвигаем вертикальную часть в центр с помощью абсолютного позиционирования и transform
+                position: absolute
+                left: 50%
+                transform: translateX(-50%)
+            &:hover // Добавляем всему плюсу ховер
+                background-color: #ff5656
+                &::before, &::after // Добавляем ховер также к его псевдоэлементам
+                    background-color: #fff
+                
+
+
+// Секция Выбор - отличная штука
+.great_choise
+    min-height: 896px
+    padding: 56px 0 138px 0 
+    background: url(../img/backgrounds/great_choise_bg.jpg) center (center / cover) no-repeat
+
+    .great_choise_header
+        +header_frame
+        background-color: $white_color
+        color: #070716
+        
+    .great_choise_subheader
+        +subheader_frame
+        color: $white_color
+        margin: 32px 0 0 0
+    .great_choise_subheader_text
+        +section_text
+        color: $white_color
+        margin-top: 19px
+    img
+        margin-top: 56px
+    .great_choise_text
+        font-size: 17px
+        line-height: 24px
+        font-weight: 300
+        color: $black_headings
+        text-align: center
+        width: 297px
+        margin: 0 auto
+        margin-top: 4px 
+
+
+// Секция Условия и требования
+.requirements
+    // min-height: 919px Не указываем
+    padding: 68px 0 55px 0 // Боттом мы уменьшили на мар-боттом req_item, чтобы суммарно выходило 84
+    .requirements_header
+        +header_frame
+        background-color: $black_color
+        color: $white_color
+    .requirements_subheader
+        +subheader_frame
+        color: $black_headings
+        margin: 33px 0 0 0 
+
+    .requirements_item
+        margin: 33px 0 29px 0 
+        .item_header
+            font-size: 22px
+            font-weight: 400
+            color: #1ca8c3
+        .list 
+            margin-top: 15px // Измеряем линейкой в фш, если не видно так
+            padding-inline-start: 50px // Также меряем линейкой отступ слева от колонки до булетов
+            li 
+                font-size: 17px
+                font-weight: 300
+                color: $black_headings
+                list-style-type: none
+                margin-bottom: 10px // Расстояние между элемами - тоже меряем линейкой и на глаз 
+                position: relative // Ставим сюда, чтобы точно этот элем был родителем псевдо
+                
+                // Создаем галочку с помощью псевдоэлементов
+                &::before
+                    content: ""
+                    width: 21px
+                    height: 20px
+                    // Наивно начал создавать круг и галочку сам в CSS)
+                    border-radius: 100%
+                    border: 1px solid #1ca8c3
+
+                    // Добавляем как бекграунд картинку с галочкой
+                    background: url(../img/icons/requirements/checked_blue.png) center (center / cover) no-repeat
+
+                    // ВЫРАВНИВАЕМ ПСЕВДОЭЛЕМЕНТ С ПОМОЩЬЮ АБСОЛЮТНОГО ПОЗИЦИОНИРОВАНИЯ (УДОБНО И ЧЕТКО)
+                    display: block
+                    position: absolute
+                    left: -32px // Расстояние между текстом и блоком + ширину блока (иконки)
+
+                    // Чтобы элем встал по-центру
+                    //top: 50%
+                    //transform: translateY(-50%)
+
+                    // Выравниваем так, чтобы элем был четко напротив первых строчек текста
+                    top: 3px // На глаз подбираем и задаем отступ сверху
+                    
+                    
+                    // ВЫРАВНИВАНИЕ ПСЕВДО-ЭЛЕМА С ПОМОЩЬЮ ИНЛАЙН-БЛОЧНОЙ ВЕРСТКИ (МОРУДНО,НЕТОЧНО)
+                    // Выравниваем по-вертикале inline-block элемент с помощью vertical-align!
+                    //display: inline-block
+                    //vertical-align: middle 
+                    // Сдвигаем по-горизонтали и вертикале с помощью трансформ
+                    //transform: translate(-6px, -2px)
+
+        .item_text
+            font-size: 17px
+            font-weight: 300
+            color: #1ca8c3
+
+    // Добавляем доп класс с изменениями НА ТОТ ЖЕ УРОВЕНЬ, что и класс, который будем менять (.requirements_item)
+    .red
+        .item_header
+            color: #ff5656
+        .list
+            li
+                &::before
+                    background: url(../img/icons/requirements/checked_red.png) center (center / cover) no-repeat
+
+
+
+// Секция По всему миру
+.global
+    min-height: 717px
+    padding: 49px 0 49px 0
+    background: url(../img/backgrounds/around_the_world_bg.jpg) center (center / cover) no-repeat
+
+    .global_header
+        +header_frame
+        background-color: $white_color
+        color: #070716
+    .global_subheader
+        +subheader_frame
+        color: $white_color
+        margin-top: 32px
+    .global_text
+        +section_text
+        color: $white_color
+        margin-top: 20px
+    .global_action_text
+        font-size: 15px
+        font-weight: 400
+        text-transform: uppercase
+        color: #1fbad6
+        margin-top: 486px
+        text-align: center
+        display: block
+        text-decoration: none
+
+
+// ФУТЕР
+footer
+    min-height: 156px
+    padding: 50px 23px 39px 23px
+    position: relative
+
+    &::before
+        content: ""
+        display: block
+        position: absolute
+        top: 14px
+        left: 50%
+        transform: translateX(-50%)
+        width: 299px
+        height: 4px
+        background-color: #1fbad6 
+    &::after
+        content: ""
+        display: block
+        position: absolute
+        bottom: 0
+        left: 50%
+        transform: translateX(-50%)
+        width: 100%
+        height: 8px
+        background-color: #070716
+
+    .footer_nav
+        position: relative
+        // Стилизация ссылок на соцсети
+        .footer_icons
+            display: flex
+            justify-content: flex-start
+            position: absolute
+            top: 0
+            left: 0
+            z-index: 1 // Больше чем у правых иконок, чтобы они не перебивали флексом, но меньше чем у меню
+            .social_item
+                +flex
+                width: 32px
+                height: 32px
+                background-color: #070716
+                border-radius: 100%
+                margin-right: 9px
+                // Добавляем цвет к нашим иконкам просто с помощью цвета текста, так как они шрифты!
+                // Цвет текста добавляется к родительскому элементу иконки, а не к ней самой (документация)
+                color: $white_color
+
+        // Перестилизация для правых иконок  
+        .apps 
+            z-index: 0 // Минимальный (не отрицательный) Z, чтобы не перебивать соцсети (стоит после них в доке)
+            right: 0
+            justify-content: flex-end
+            .apps_item
+                +flex
+                margin-left: 9px
+            
+    .footer_menu
+        display: flex
+        justify-content: space-between
+        list-style-type: none
+        line-height: 14px
+        padding: 0 12.5px
+        // Устанавливаем самый высокий положительный Z, чтобы выдвинуть меню на первый план
+        position: relative
+        z-index: 2
+
+        .menu_link
+            text-decoration: none
+            font-size: 15px
+            font-weight: 300
+            text-transform: uppercase
+            color: #070716
+
+    .grey // Перестелизация нижних (серых) элементов меню 
+        padding: 0 0
+        line-height: 10px
+        margin: 0 0
+        .menu_link
+            font-size: 11px
+            font-weight: 300
+            text-transform: uppercase
+            color: #999999
+    
+    .language
+        font-size: 11px
+        font-weight: 400
+        text-transform: uppercase
+        color: #1fbad6
+        display: block
+        margin-top: 19px
+        text-align: center
+        text-decoration: none
