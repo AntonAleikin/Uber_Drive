@@ -442,15 +442,16 @@ footer
         background-color: #070716
 
     .footer_nav
-        position: relative
+        // Расставляем все элемы футора (даже те, что за сеткой) с помощью флекса
+        display: flex
+        justify-content: space-between
+        align-items: flex-start
+
         // Стилизация ссылок на соцсети
         .footer_icons
             display: flex
             justify-content: flex-start
-            position: absolute
-            top: 0
-            left: 0
-            z-index: 1 // Больше чем у правых иконок, чтобы они не перебивали флексом, но меньше чем у меню
+            
             .social_item
                 +flex
                 width: 32px
@@ -464,46 +465,45 @@ footer
 
         // Перестилизация для правых иконок  
         .apps 
-            z-index: 0 // Минимальный (не отрицательный) Z, чтобы не перебивать соцсети (стоит после них в доке)
-            right: 0
             justify-content: flex-end
+            max-width: 164px // выравниваем все по-центру, задвигая апп вправо и оттягиваем флексом назад
             .apps_item
                 +flex
                 margin-left: 9px
+
+        .footer_center
+            width: 360px
+            // Стилизация меню   
+            .footer_menu
+                display: flex
+                justify-content: space-between
+                list-style-type: none
+                line-height: 14px
+                padding: 0 12.5px
+
+                .footer_menu_link
+                    text-decoration: none
+                    font-size: 15px
+                    font-weight: 300
+                    text-transform: uppercase
+                    color: #070716
+
+            .grey // Перестелизация нижних (серых) элементов меню 
+                padding: 0 0
+                line-height: 10px
+                margin: 0 0
+                .footer_menu_link
+                    font-size: 11px
+                    font-weight: 300
+                    text-transform: uppercase
+                    color: #999999
             
-    .footer_menu
-        display: flex
-        justify-content: space-between
-        list-style-type: none
-        line-height: 14px
-        padding: 0 12.5px
-        // Устанавливаем самый высокий положительный Z, чтобы выдвинуть меню на первый план
-        position: relative
-        z-index: 2
-
-        .menu_link
-            text-decoration: none
-            font-size: 15px
-            font-weight: 300
-            text-transform: uppercase
-            color: #070716
-
-    .grey // Перестелизация нижних (серых) элементов меню 
-        padding: 0 0
-        line-height: 10px
-        margin: 0 0
-        .menu_link
-            font-size: 11px
-            font-weight: 300
-            text-transform: uppercase
-            color: #999999
-    
-    .language
-        font-size: 11px
-        font-weight: 400
-        text-transform: uppercase
-        color: #1fbad6
-        display: block
-        margin-top: 19px
-        text-align: center
-        text-decoration: none
+            .language
+                font-size: 11px
+                font-weight: 400
+                text-transform: uppercase
+                color: #1fbad6
+                display: block
+                margin-top: 19px
+                text-align: center
+                text-decoration: none
