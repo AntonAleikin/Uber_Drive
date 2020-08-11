@@ -6,9 +6,9 @@
             right: -23px
     .promo
         &_header
-            font-size: 50px
+            font-size: 45px
         &_subheader
-            font-size: 35px 
+            font-size: 30px 
     .advantages
         .advantages_item
             .item_text
@@ -26,6 +26,47 @@
         .global_text
             font-size: 16px
     footer
-        .apps_item
-            img
-                width: 70px
+        .footer_nav
+            align-items: center
+        .apps
+            flex-direction: column
+            .apps_item
+                margin-top: 7px
+                &::first-child
+                    margin-top: 0
+        
+
+//Medium
+@media (max-width: 991px)
+    .menu
+        padding: 13.5px 0
+        &_item::after
+            right: -11px
+    .subheader
+        &_logo_text
+            font-size: 12px
+        &_number
+            font-size: 18px
+    .promo
+        &_header
+            font-size: 41px
+        &_subheader
+            font-size: 25px 
+        &_text
+            font-size: 16px
+    .advantages
+        &_subheader
+            font-size: 37px
+        &_item
+            flex-direction: column // Разворачиваем главную ось и делаем из row column
+            align-items: center
+            .item_text
+                margin-top: 10px
+                text-align: center
+    .opportunities
+        .opportunities_item
+            width: 220px
+            height: 220px
+            .opportunities_text
+                font-size: 16px
+    

@@ -65,7 +65,7 @@ header
         display: block
         margin-top: 16px
 
-    .subheader_logo_text
+    &_logo_text
         margin-top: 6px
         opacity: 0.5
         font-size: 13px
@@ -79,7 +79,7 @@ header
         font-weight: 300
         color: $white_color
 
-    .subheader_number
+    &_number
         margin-top: 8px
         display: block // Делаем блок, чтобы выровнять текст
         text-align: right
@@ -156,12 +156,12 @@ header
         +header_frame
         background-color: $black_color
         color: $white_color
-    .advantages_subheader
+    &_subheader
         +subheader_frame
         color: $black_headings
         margin: 38px 0 0 0
     
-    .advantages_item
+    &_item
         display: flex
         justify-content: space-around
         // Выравниваем всех в самый верх (старт) по-вертикали, чтобы все уровнялись в одном Роу 
@@ -274,7 +274,6 @@ header
                     background-color: #fff
                 
 
-
 // Секция Выбор - отличная штука
 .great_choise
     min-height: 896px
@@ -294,8 +293,6 @@ header
         +section_text
         color: $white_color
         margin-top: 19px
-    img
-        margin-top: 56px
     .great_choise_text
         font-size: 17px
         line-height: 24px
@@ -304,7 +301,7 @@ header
         text-align: center
         width: 297px
         margin: 0 auto
-        margin-top: 4px 
+        margin-top: 540px 
 
 
 // Секция Условия и требования
@@ -413,7 +410,6 @@ header
         display: block
         text-decoration: none
 
-
 // ФУТЕР
 footer
     min-height: 156px
@@ -464,7 +460,7 @@ footer
                 color: $white_color
 
         // Перестилизация для правых иконок  
-        .apps 
+        .apps
             justify-content: flex-end
             max-width: 164px // выравниваем все по-центру, задвигая апп вправо и оттягиваем флексом назад
             .apps_item
