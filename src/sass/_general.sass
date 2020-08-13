@@ -6,12 +6,27 @@ header
 .header_nav
     height: 51px
     background-color: #212121
-
     // Липкая шапка
     position: fixed
     width: 100%
-    z-index: 2
+    z-index: 1
 
+    .burger
+        width: 22px
+        height: 12px
+        //background: url(../img/icons/burger_menu.png) center (center / cover) no-repeat
+        position: absolute
+        right: 10px
+        top: 50%
+        transform: translateY(-50%)
+        cursor: pointer
+        display: none
+        span
+            display: block
+            width: 100%
+            height: 1px
+            background-color: $white_color
+            transition: all 0.5s ease-out // Для плавности следующих переходов
 .menu
     padding: 13.5px 71px 
     margin: 0
@@ -72,7 +87,7 @@ header
         font-weight: 100
         color: $white_color
 
-    .subheader_call
+    &_call
         margin-top: 23px
         text-align: right
         font-size: 12px
@@ -84,21 +99,17 @@ header
         display: block // Делаем блок, чтобы выровнять текст
         text-align: right
         line-height: 16px // Чтобы контент был четко по рамкам блока - ставим высоту строки = высоте блока с текстом из макета 
-        
         font-size: 22px
         font-weight: 400
         text-transform: uppercase
         color: $white_color
-        
-        .dot
-            display: inline-block
-            margin: 6px 0 6px 0
-            width: 4px
-            height: 4px
-            background-color: $white_color
-            border-radius: 2px
+        &:hover
+            text-decoration: none
+            color: $white_color
+        &_mob
+            display: none
 
-    .subheader_btn
+    &_btn
         margin: 19px 0 19px 0 
         width: 172px
         height: 46px
@@ -108,9 +119,6 @@ header
         // Добавление мексина Ховер к кнопке
         +btn_hover
         
-
-        
-       
 
 // Секция ПРОМО
 .promo
@@ -285,7 +293,7 @@ header
         background-color: $white_color
         color: #070716
         
-    .great_choise_subheader
+    &_subheader
         +subheader_frame
         color: $white_color
         margin: 32px 0 0 0
@@ -312,7 +320,7 @@ header
         +header_frame
         background-color: $black_color
         color: $white_color
-    .requirements_subheader
+    &_subheader
         +subheader_frame
         color: $black_headings
         margin: 33px 0 0 0 
@@ -380,8 +388,6 @@ header
                 &::before
                     background: url(../img/icons/requirements/checked_red.png) center (center / cover) no-repeat
 
-
-
 // Секция По всему миру
 .global
     min-height: 717px
@@ -392,7 +398,7 @@ header
         +header_frame
         background-color: $white_color
         color: #070716
-    .global_subheader
+    &_subheader
         +subheader_frame
         color: $white_color
         margin-top: 32px

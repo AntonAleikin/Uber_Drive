@@ -20,11 +20,6 @@
             height: 240px
             .opportunities_text
                 font-size: 18px
-    .global
-        .global_subheader
-            font-size: 35px
-        .global_text
-            font-size: 16px
     footer
         .footer_nav
             align-items: center
@@ -45,8 +40,13 @@
     .subheader
         &_logo_text
             font-size: 12px
+        &_call
+            margin-top: 19px
         &_number
             font-size: 18px
+        &_btn
+            width: 166px
+            height: 40px
     .promo
         &_header
             font-size: 41px
@@ -69,4 +69,120 @@
             height: 220px
             .opportunities_text
                 font-size: 16px
+
+//Small
+@media (max-width: 767px)
+    .header_nav
+        .container // Отключаем сетку
+            margin: 0
+            padding: 0
+        .burger
+            // Располагаем спены в виде гамбургера 
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            &_active
+                cursor: pointer
+                // Располагаем спены, которые скрестились, по-центру
+                +flex
+                span
+                    position: absolute
+                    &:nth-child(1)
+                        transform: rotate(-45deg)
+                    &:nth-child(2)
+                        transform: translateX(-150%)
+                        opacity: 0
+                    &:nth-child(3)
+                        transform: rotate(45deg) 
+                
+                
+    .menu
+        // Располагаем элементы меню так, чтобы они занимали пол экрана (50%) и были списком
+        // Анимацию задаем тут, только обработчик события на скрипте
+        padding: 32px
+        flex-direction: column
+        align-items: flex-start
+        justify-content: flex-start
+        background-color: rgba(0, 0, 0, .9)
+        transition: all 0.5s ease-out 
+
+        // Убераем меню из HTML, чтобы сдвинуть его за границы СТ, а потом выдвигать при клике 
+        position: fixed
+        width: 50% 
+        height: 100vh // Весь экран устройства 
+        left: -100% // Убираем 
+        &_active // Добавляем класс, который будем добавлять JS-ом, чтобы отобразить меню 
+            left: 0
+        &_link
+            font-size: 17px
+        &_item
+            margin-bottom: 20px
+            &::after
+                display: none
+    
+    .subheader
+        .xs-hide
+            display: none
+        .subheader_logo
+            img
+                width: 100%
+        &_number
+            padding-right: 15px 
+            font-size: 16px
+            &_mob
+                display: block
+        &_btn
+            margin: 0
+            width: 60%
+            height: 34px
+            font-size: 12px
+        .mob 
+            display: flex
+            flex-direction: column
+            align-items: flex-end
+            justify-content: space-around
+    .promo
+        &_header
+            font-size: 36px
+        &_subheader
+            font-size: 22px 
+    .advantages
+        &_subheader
+            font-size: 27px
+        &_item
+            flex-direction: row
+    .opportunities
+        .opportunities_subheader
+            font-size: 31px
+        .opportunities_item
+            margin: 32px auto -13px auto
+            width: 320px
+            height: 280px
+            .opportunities_text
+                font-size: 20px
+    .great_choise
+        &_subheader
+            font-size: 31px
+    .requirements
+        &_subheader
+            font-size: 31px
+    .global
+        &_subheader
+            font-size: 31px
+    footer
+        .footer_nav
+            flex-direction: column
+            align-items: center
+            justify-content: space-between
+            // Меняем последовательность флексов
+            .footer_icons
+                margin-top: 20px
+                order: 1
+            .footer_center
+                order: 0 // 0 > 1, поэтому меню первое 
+            .apps
+                flex-direction: row
+                justify-content: center
+                
+
     
