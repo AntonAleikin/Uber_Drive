@@ -127,6 +127,7 @@
             img
                 width: 100%
         &_number
+            //text-align: center
             padding-right: 15px 
             font-size: 16px
             &_mob
@@ -146,11 +147,16 @@
             font-size: 36px
         &_subheader
             font-size: 22px 
+        &_btn
+            margin: 0 auto
+            margin-top: 69px
     .advantages
         &_subheader
             font-size: 27px
         &_item
             flex-direction: row
+            .item_text
+                text-align: left
     .opportunities
         .opportunities_subheader
             font-size: 31px
@@ -183,6 +189,131 @@
             .apps
                 flex-direction: row
                 justify-content: center
-                
+
+// Mobile
+@media (max-width: 575px)
+    // Меняем высоту шапки меню + все вытекающие из того величины 
+    header
+        height: 30px
+    .header_nav
+        height: 30px
+        .burger
+            height: 9px
+    .menu
+        width: 100%
+        top: 30px
+    .subheader
+        margin-top: 30px
+        height: 60px
+        &_logo
+            &_text
+                display: none
+        .mob
+            align-items: center
+        &_number
+            margin-top: 11px
+            padding: 0
+            font-size: 12px
+            line-height: 9px
+        &_btn
+            margin-top: 6px
+            width: 116px
+            height: 28px
+            font-size: 10px
+    .promo
+        padding: 113px 0 32px 0
+        min-height: 400px
+        &_header
+            font-size: 35px
+            line-height: 40px
+        &_subheader
+            margin-top: 30px
+            font-size: 20px 
+            line-height: 30px
+        &_text
+            display: none
+        &_btn
+            width: 216px
+            height: 56px
+            font-size: 16px
+    .advantages
+        padding: 22px 0 50px 0
+        &_subheader
+            font-size: 16px
+            margin-top: 15px
+        &_item
+            flex-direction: column
+            margin-top: 26px
+            .item_text
+                margin-top: 26px
+                min-height: 75px
+    .opportunities
+        padding: 22px 0 43px 0 
+        .opportunities_subheader
+            margin-top: 15px
+            font-size: 16px
+        .opportunities_subheader_text
+            margin-top: 11px
+            font-size: 14px
+        .opportunities_item
+            width: 290px
+            height: 254px
+            .opportunities_text
+                font-size: 18px
+    .great_choise
+        padding: 25px 0 33px 0
+        min-height: 390px
+        // Ставим новый бек (адаптированную картинку)
+        background: url(../img/backgrounds/great_choise_mob.jpg) center (center/cover) no-repeat
+        &_subheader
+            display: none
+            &_text
+                display: none
+        &_text
+            margin-top: 248px
+            font-size: 17px
+            color: $white_color
+    .requirements
+        padding: 25px 0 26px 0 
+        &_subheader
+            margin-top: 15px
+            font-size: 18px
+        .requirements_item
+            margin: 22px 0 10px 0 
+        .red
+            margin: 30px 0 2px 0
+    .global
+        min-height: 360px
+        padding: 25px 0 30px 0
+        background: url(../img/backgrounds/around_the_world_mob.jpg) center (center/cover) no-repeat
+        &_subheader
+            margin-top: 15px
+            font-size: 18px
+        &_text
+            margin-top: 10px
+            font-size: 14px
+        .global_action_text
+            margin-top: 186px
+    footer
+        padding: 25px 0 20px 0
+        &::before
+            top: 25px
+        .footer_nav
+            margin-top: 26px
+            .footer_center
+                width: 320px
+                .footer_menu
+                    .footer_menu_link
+                        font-size: 14px
+                .grey 
+                    // переносим с помощью врапа и сдвигаем для переноса паддингом
+                    flex-wrap: wrap
+                    padding: 0 40px
+                    .footer_menu_link
+                        line-height: 22px
+                        font-size: 11px
+                .language
+                    margin-top: 13px
+
 
     

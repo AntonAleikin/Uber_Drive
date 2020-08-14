@@ -160,7 +160,7 @@ header
 // Секция Преимущества
 .advantages
     padding: 71px 0 65px 0 
-    .advantages_header
+    &_header
         +header_frame
         background-color: $black_color
         color: $white_color
@@ -288,7 +288,7 @@ header
     padding: 56px 0 138px 0 
     background: url(../img/backgrounds/great_choise_bg.jpg) center (center / cover) no-repeat
 
-    .great_choise_header
+    &_header
         +header_frame
         background-color: $white_color
         color: #070716
@@ -297,11 +297,11 @@ header
         +subheader_frame
         color: $white_color
         margin: 32px 0 0 0
-    .great_choise_subheader_text
-        +section_text
-        color: $white_color
-        margin-top: 19px
-    .great_choise_text
+        &_text
+            +section_text
+            color: $white_color
+            margin-top: 19px
+    &_text
         font-size: 17px
         line-height: 24px
         font-weight: 300
@@ -402,7 +402,7 @@ header
         +subheader_frame
         color: $white_color
         margin-top: 32px
-    .global_text
+    &_text
         +section_text
         color: $white_color
         margin-top: 20px
